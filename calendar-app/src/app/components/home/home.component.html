@@ -1,0 +1,36 @@
+<div class="flex flex-wrap">
+  <div class="w-full md:w-[25%] mt-4 rounded-xl p-3 bg-white">
+    <div class="flex items-center justify-between gap-3 ">
+            <button class="cursor-pointer rounded-full box-border w-[32px] h-[32px] border border-slate-200 flex items-center justify-center" (click)="shiftDate('backward')">
+              <span class="material-icons">keyboard_arrow_left</span>
+            </button>
+      <p class="font-medium"> <span>{{ date | date : "MMMM, " }}</span><span>{{ date | date : " yyyy" }}</span> </p>
+            <button class="cursor-pointer rounded-full box-border w-[32px] h-[32px] border border-slate-200 flex items-center justify-center" (click)="shiftDate('forward')">
+              <span class="material-icons">keyboard_arrow_right</span>
+            </button>
+    </div>
+    <div class="grid grid-cols-7 gap-1 mt-3 rounded-lg box-border bg-slate-100">
+      @for (week of weekDays; track week) {
+        <div class="flex items-center justify-center">
+          <div class="text-sm w-[36px] box-border text-center font-medium py-1 "> {{ week }}</div>
+        </div>
+      }
+    </div>
+    <div class="grid grid-cols-7 gap-1 mt-3  rounded-lg box-border">
+      @for (day of prefixer; track day + "weekDay") {
+        <div class="flex items-center justify-center font-medium">
+          <span class="text-sm rounded-full w-[36px] h-[36px] box-border cursor-default"></span>
+        </div>
+      }
+      @for (day of days; track day) {
+        <div class="flex items-center justify-center font-medium">
+          <button class="text-sm rounded-full w-[36px] h-[36px] box-border cursor-pointer "
+                  [class.border-slate-100]="alwaysActiveCurrentDate(day)"
+                  [class.hover:bg-blue-200]="!isCurrentMonth(day)" [class.bg-blue-800]="isCurrentMonth(day)"
+                  [class.text-white]="isCurrentMonth(day)" (click)="setCurrentDate(day)"> {{ day | date : "d" }}
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</div>
