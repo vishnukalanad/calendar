@@ -1,1 +1,10 @@
-<p>events works!</p>
+<div class="p-4 bg-white rounded-xl box-border">
+  <p class="text-xl font-medium">Upcoming Events</p>
+  <p class="text-slate-500 text-sm">See your scheduled events from your calendar</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-2 box-border">
+    @for (event of events; track event.id) {
+      <app-event-single [event]="event"/>
+    }
+  </div>
+</div>

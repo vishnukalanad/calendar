@@ -24,7 +24,7 @@ export class CalendarService implements ICalendarService {
 
   /**
    * Generates an observable that emits an array of days for the given month.
-   * @param {Date} date - The date.
+   * @param {Date} date - The dateRef.
    * @return {Observable<number[]>} An observable emitting an array containing the days of the month, starting from 1 up to the specified number of days.
    */
   generateCalendarMonthDays(date: Date): Observable<Date[]> {
