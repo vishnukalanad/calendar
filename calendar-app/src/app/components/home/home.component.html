@@ -3,13 +3,19 @@
     <app-calendar-mini/>
   </div>
   <div class="w-full md:col-span-9 md:mt-4 box-border">
-    <div class="rounded-xl bg-white p-4 box-border">
-      <button class="flex items-center gap-1 bg-blue-800 text-white p-2 pe-4 rounded-lg">
-        <span class="material-icons-outlined">add</span> Create Event
-      </button>
-    </div>
+    @if (showForm) {
+      <div class="box-border" [class.mt-4]="!showForm">
+        <app-event-creation-form (onCancel)="toggleForm()" (submit)="onSubmit($event)"/>
+      </div>
+    } @else {
+      <div class="rounded-xl bg-white p-4 box-border">
+        <button class="flex items-center gap-1 bg-blue-800 text-white p-2 pe-4 rounded-lg cursor-pointer" (click)="toggleForm()">
+          <span class="material-icons-outlined">add</span> Create Event
+        </button>
+      </div>
+    }
     <div class="mt-4 box-border">
-      <app-events />
+      <app-events/>
     </div>
   </div>
 </div>

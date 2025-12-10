@@ -1,0 +1,17 @@
+<div class="p-4 rounded-xl bg-white">
+  <p class="text-xl font-medium">Create Events</p>
+  <p class="text-slate-500 text-sm">See your scheduled events from your calendar</p>
+
+  <form [formGroup]="form" class="mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+      <input type="text" formControlName="title" placeholder="Event Title" class="w-full p-2 border border-slate-200 rounded-lg" />
+      <input type="text" formControlName="description" placeholder="Event Description" class="w-full p-2 border border-slate-200 rounded-lg" />
+      <input type="date" formControlName="date" class="w-full p-2 border border-slate-200 rounded-lg" />
+      <input type="text" formControlName="type" class="w-full p-2 border border-slate-200 rounded-lg" placeholder="" />
+
+      <div class="col-span-2"></div>
+      <button class="w-full p-2 mt-2 bg-slate-100 text-slate-700 rounded-lg cursor-pointer" (click)="cancel()">Cancel</button>
+      <button class="w-full p-2 mt-2 bg-blue-800 text-white rounded-lg cursor-pointer" (click)="onSubmit()">Create Event</button>
+    </div>
+  </form>
+</div>
