@@ -26,13 +26,16 @@ export class EventCreationFormComponent {
     priority: new FormControl(''),
     project: new FormControl('')
   });
-  constructor() { }
 
-  cancel(){
+  constructor() {
+  }
+
+  cancel() {
+    console.log("cancel");
     this.onCancel.emit();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submit.emit(this.form.value);
   }
 }

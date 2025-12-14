@@ -3,8 +3,17 @@
   <p class="text-slate-500 text-sm">See your scheduled events from your calendar</p>
 
   <div class="grid grid-cols-1 md:grid-cols-3 mt-3 gap-2 box-border">
-    @for (event of events; track event.id) {
+    @for (event of events; track generateRandomId()) {
       <app-event-single [event]="event"/>
+    }
+  </div>
+  <div class="flex" [class.justify-center]="!events.length" [class.justify-end]="events.length">
+    @if (!events.length) {
+      <p class="text-center text-sm mt-4">No events found</p>
+    } @else {
+      <button class="mt-4 py-2 px-4 bg-slate-100 text-slate-700 rounded-lg cursor-pointer" (click)="loadData(page+1)">
+        Load more
+      </button>
     }
   </div>
 </div>

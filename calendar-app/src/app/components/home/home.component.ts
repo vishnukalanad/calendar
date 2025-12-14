@@ -35,7 +35,7 @@ import {IEventService} from '../../core/interfaces/IEventService';
 })
 export class HomeComponent {
 
-  showForm: boolean = false;
+  showForm: boolean = true;
 
   constructor(@Inject(calendarService) private calendarService: ICalendarService, @Inject(eventsService) private eventService: IEventService,) {
   }

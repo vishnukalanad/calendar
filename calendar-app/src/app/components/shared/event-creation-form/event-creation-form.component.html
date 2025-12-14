@@ -7,11 +7,11 @@
       <input type="text" formControlName="title" placeholder="Event Title" class="w-full p-2 border border-slate-200 rounded-lg" />
       <input type="text" formControlName="description" placeholder="Event Description" class="w-full p-2 border border-slate-200 rounded-lg" />
       <input type="date" formControlName="date" class="w-full p-2 border border-slate-200 rounded-lg" />
-      <input type="text" formControlName="type" class="w-full p-2 border border-slate-200 rounded-lg" placeholder="" />
+      <input type="text" formControlName="type" class="w-full p-2 border border-slate-200 rounded-lg" placeholder="Event Type" />
 
       <div class="col-span-2"></div>
-      <button class="w-full p-2 mt-2 bg-slate-100 text-slate-700 rounded-lg cursor-pointer" (click)="cancel()">Cancel</button>
-      <button class="w-full p-2 mt-2 bg-blue-800 text-white rounded-lg cursor-pointer" (click)="onSubmit()">Create Event</button>
+      <button class="w-full p-2 mt-2 bg-slate-100 text-slate-700 rounded-lg cursor-pointer" (click)="cancel()" type="button">Cancel</button>
+      <button class="w-full p-2 mt-2 bg-blue-800 text-white rounded-lg cursor-pointer" (click)="onSubmit()" type="button">Create Event</button>
     </div>
   </form>
 </div>

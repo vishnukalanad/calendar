@@ -23,10 +23,26 @@ import {EventsService} from '../../../core/services/events.service';
 })
 export class EventsComponent {
   events: TasksModel[] = [];
+  page = 1;
+  pageSize = 5;
 
   constructor(@Inject(eventsService) private eventService: IEventService) { }
 
   ngOnInit(): void {
-    this.eventService.getEvents().pipe().subscribe(events => this.events = events);
+    this.loadData(this.page);
+  }
+
+  loadData(page: number): void {
+    console.log("Loading data for page : ", page);
+    this.eventService.getEvents(page, this.pageSize).subscribe(events => events.forEach(event => this.events.push(event)));
+  }
+
+  /**
+   * Generates a random alphanumeric string ID.
+   * Combines two sequences of random characters derived from `Math.random`.
+   * @return {string} A randomly generated alphanumeric string.
+   */
+  generateRandomId(): string {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 }

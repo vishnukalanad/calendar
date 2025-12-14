@@ -14,13 +14,20 @@ export class EventsService implements IEventService {
     this.loadEvent();
   }
 
+
   /**
-   * Retrieves a list of events.
+   * Retrieves a paginated list of events.
    *
-   * @return {Observable<TasksModel[]>} An observable emitting an array of tasks model instances.
+   * @param {number} page - The current page number.
+   * @param {number} pageSize - The number of events per page.
+   * @return {Observable<TasksModel[]>} An observable containing the list of events for the specified page.
    */
-  getEvents(): Observable<TasksModel[]> {
-    return of(this.events);
+  getEvents(page: number, pageSize: number): Observable<TasksModel[]> {
+    const start = (page - 1) + pageSize;
+    const end = start + pageSize;
+    const paginated = this.events.slice(start, end);
+
+    return of(paginated);
   }
 
   /**
